@@ -3,148 +3,147 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Telegram WebApp</title>
+  <title>WebApp — Подписка</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --g1:#007af2;
-      --g2:#046df3;
-      --g3:#0193f9;
-      --g4:#009cf8;
-      --bg-grad:linear-gradient(135deg,var(--g1),var(--g2),var(--g3),var(--g4));
-      --text:#eaf6ff;
+    :root {
+      --g1: #007af2;
+      --g2: #046df3;
+      --g3: #0193f9;
+      --g4: #009cf8;
+      --bg-grad: linear-gradient(135deg, var(--g1), var(--g2), var(--g3), var(--g4));
+      --text: #eaf6ff;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Poppins',sans-serif;
-      background:var(--bg-grad);
-      color:var(--text);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-height:100vh;
-      padding:20px;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-grad);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    .card{
-      width:100%;
-      max-width:512px;
-      min-height:512px;
-      background:rgba(255,255,255,0.06);
-      border-radius:32px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.35);
-      backdrop-filter:blur(10px) saturate(140%);
-      border:1px solid rgba(255,255,255,0.08);
-      padding:40px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      text-align:left;
+    .card {
+      width: 512px;
+      height: 512px;
+      border-radius: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
     }
 
-    .logo{
-      width:64px;
-      height:64px;
-      border-radius:16px;
-      background:linear-gradient(145deg,var(--g3),var(--g1));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      font-size:22px;
-      box-shadow:inset 0 -6px 12px rgba(0,0,0,0.3);
-      margin-bottom:20px;
+    .banner {
+      width: 50%;
+      background: var(--bg-grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 28px;
+      text-align: center;
     }
 
-    h1{
-      font-size:24px;
-      font-weight:700;
-      margin:15px 0;
-      line-height:1.3;
+    .content {
+      width: 50%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--text);
     }
 
-    p{
-      font-size:15px;
-      opacity:0.9;
-      margin-bottom:20px;
-      line-height:1.5;
+    .close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      border-radius: 8px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
     }
 
-    .btn{
-      background:linear-gradient(90deg,var(--g3),var(--g2));
-      border:none;
-      border-radius:999px;
-      padding:14px 28px;
-      color:#fff;
-      font-weight:600;
-      cursor:pointer;
-      align-self:flex-start;
-      box-shadow:0 6px 18px rgba(0,0,0,0.3);
-      transition:transform .2s,box-shadow .2s;
-      font-size:15px;
-      margin-top:10px;
+    .close-btn:hover { background: rgba(255,255,255,0.3); }
+
+    .content h1 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
     }
 
-    .btn:hover{
-      transform:scale(1.05);
-      box-shadow:0 8px 24px rgba(0,0,0,0.4);
+    .content p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 20px;
     }
 
-    .footer{
-      text-align:left;
-      font-size:12px;
-      opacity:0.8;
-      margin-top:20px;
+    .btn {
+      background: linear-gradient(90deg, var(--g3), var(--g2));
+      border: none;
+      border-radius: 999px;
+      padding: 12px 24px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      align-self: flex-start;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: transform .2s, box-shadow .2s;
+      font-size: 14px;
     }
 
-    .feature{
-      display:flex;
-      align-items:center;
-      margin:12px 0;
-      font-size:14px;
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     }
 
-    .feature:before{
-      content:"✓";
-      margin-right:10px;
-      color:#4ae08c;
-      font-weight:bold;
+    .footer {
+      position: absolute;
+      bottom: 12px;
+      left: 20px;
+      font-size: 11px;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <div>
-      <div class="logo">TG</div>
-      <h1>Добро пожаловать в Telegram WebApp</h1>
-      <p>Используйте все возможности нашего приложения прямо в Telegram</p>
-      
-      <div class="feature">Быстрый запуск</div>
-      <div class="feature">Удобный интерфейс</div>
-      <div class="feature">Безопасные платежи</div>
-      <div class="feature">Интеграция с Telegram</div>
-      
-      <button class="btn" id="mainBtn">Начать использовать</button>
+    <div class="banner">WD</div>
+    <div class="content">
+      <div style="font-size:12px;opacity:0.8;">У нас есть канал</div>
+      <div style="font-weight:700;">@chance_io</div>
+      <h1>Не пропустите обновления,<br>розыгрыши призов и новости</h1>
+      <p>Подключайтесь к нашему каналу в Telegram, чтобы получать всё первыми.</p>
+      <button class="btn" id="subscribeBtn">Подписаться</button>
     </div>
-    <div class="footer">Telegram WebApp • Версия 1.0</div>
+    <button class="close-btn" id="closeBtn">×</button>
+    <div class="footer">Версия webapp • #007af2 → #046df3 → #0193f9 → #009cf8</div>
   </div>
 
   <script>
-    // Основная кнопка действия
-    document.getElementById('mainBtn').addEventListener('click', function() {
-      // В реальном WebApp здесь будет логика для Telegram Mini Apps
-      alert('WebApp запущен!');
-      
-      // Пример открытия внешней ссылки
-      // window.open('https://t.me/your_bot', '_blank');
+    const channel = 'https://t.me/chance_io';
+    document.getElementById('subscribeBtn').addEventListener('click',()=>{
+      window.open(channel,'_blank');
     });
-
-    // Инициализация Telegram WebApp
-    if (window.Telegram && Telegram.WebApp) {
-      Telegram.WebApp.ready();
-      Telegram.WebApp.expand();
-    }
+    document.getElementById('closeBtn').addEventListener('click',()=>{
+      document.querySelector('.card').style.display='none';
+    });
   </script>
 </body>
 </html>
