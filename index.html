@@ -24,103 +24,84 @@
       justify-content:center;
       align-items:center;
       height:100vh;
-      padding:20px;
     }
 
     .card{
-      position:relative;
-      width:100%;
-      max-width:900px;
-      aspect-ratio:16/9;
+      width:512px;
+      height:512px;
       background:rgba(255,255,255,0.06);
-      border-radius:28px;
-      box-shadow:0 12px 40px rgba(0,0,0,0.35);
-      backdrop-filter:blur(12px) saturate(150%);
-      border:1px solid rgba(255,255,255,0.1);
+      border-radius:32px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.35);
+      backdrop-filter:blur(10px) saturate(140%);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:40px;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      overflow:hidden;
-      padding:40px 50px;
-    }
-
-    .content{
-      display:flex;
-      flex-direction:row;
-      align-items:center;
-      gap:20px;
-      flex:1;
+      text-align:left;
     }
 
     .logo{
-      width:80px;
-      height:80px;
-      border-radius:20px;
+      width:64px;
+      height:64px;
+      border-radius:16px;
       background:linear-gradient(145deg,var(--g3),var(--g1));
       display:flex;
       align-items:center;
       justify-content:center;
       font-weight:700;
-      font-size:26px;
+      font-size:22px;
       box-shadow:inset 0 -6px 12px rgba(0,0,0,0.3);
+      margin-bottom:12px;
     }
 
-    .text{
-      flex:1;
-    }
-
-    .text h1{
-      font-size:24px;
+    h1{
+      font-size:22px;
       font-weight:700;
-      margin:6px 0 10px;
+      margin:10px 0;
+      line-height:1.2;
     }
 
-    .text p{
-      font-size:15px;
+    p{
+      font-size:14px;
       opacity:0.9;
+      margin-bottom:16px;
     }
 
     .btn{
       background:linear-gradient(90deg,var(--g3),var(--g2));
       border:none;
       border-radius:999px;
-      padding:14px 28px;
+      padding:12px 24px;
       color:#fff;
       font-weight:600;
       cursor:pointer;
-      box-shadow:0 8px 20px rgba(0,0,0,0.3);
+      align-self:flex-start;
+      box-shadow:0 6px 18px rgba(0,0,0,0.3);
       transition:transform .2s,box-shadow .2s;
     }
 
     .btn:hover{
       transform:scale(1.05);
-      box-shadow:0 10px 26px rgba(0,0,0,0.4);
+      box-shadow:0 8px 24px rgba(0,0,0,0.4);
     }
 
     .footer{
-      text-align:right;
-      font-size:13px;
+      text-align:left;
+      font-size:12px;
       opacity:0.8;
-    }
-
-    @media(max-width:800px){
-      .card{aspect-ratio:auto;padding:30px;}
-      .content{flex-direction:column;text-align:center;}
-      .logo{margin-bottom:10px;}
-      .footer{text-align:center;margin-top:15px;}
+      margin-top:10px;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="content">
+    <div>
+      <div style="font-size:12px;opacity:0.8;">У нас есть канал</div>
+      <div style="font-weight:700;">@chance_io</div>
       <div class="logo">WD</div>
-      <div class="text">
-        <div style="font-size:13px;opacity:0.8;">У нас есть канал</div>
-        <div style="font-weight:700;">@chance_io</div>
-        <h1>Не пропустите обновления, розыгрыши призов и новости</h1>
-        <p>Подключайтесь к нашему каналу в Telegram, чтобы получать всё первыми.</p>
-      </div>
+      <h1>Не пропустите обновления, розыгрыши призов и новости</h1>
+      <p>Подключайтесь к нашему каналу в Telegram, чтобы получать всё первыми.</p>
       <button class="btn" id="subscribeBtn">Подписаться</button>
     </div>
     <div class="footer">Версия webapp • Градиенты: #007af2 → #046df3 → #0193f9 → #009cf8</div>
